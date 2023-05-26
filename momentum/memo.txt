@@ -1,0 +1,19 @@
+console.log(document.getElementById("title"));
+console.log(document.getElementById("title").textContent);
+console.dir(document.getElementById("title"));
+
+
+console.log는 print처럼 콘솔에 출력을 해주는 함수
+console.dir은 인자로 넘겨준 object에 어떤 속성? 인자? 들이 있는지 볼 수 있음 (python에서 dict나 class를 출력한것 처럼)
+그래서 console.dir(document.getElementById("title")); 이렇게 사용하면, title이라는 id를 갖고있는 tag에 어떤 속성들이 있는지 다 볼 수 있음
+
+그래서 textContent라는게 있구나 라는것도 알 수 있음! 당연하게도 JS단에서
+
+################################################################
+################################################################
+
+querySelector, querySelectorAll 함수를 사용하면 CSS Selector를 이용해서 원하는 tag들을 갖고올 수 있다.
+당연하게도 id, class이름도 사용가능함! #id name or .class name
+
+querySelector는 매칭되는 1개의 반환값을 돌려주고, querySelectorAll은 list형대로 매칭되는 다수의 값을 반환해준다
+추가로 CSS Selector처럼 사용하기에 .class h1:first-child 와 같이도 사용이 가능하다.
