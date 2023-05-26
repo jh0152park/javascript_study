@@ -1,12 +1,12 @@
-const title = document.querySelector("#title");
+const h1 = document.querySelector("#title");
 
 function handleTitleClick() {
-    title.style.color = "red";
+    console.log(typeof h1.className);
+    if (h1.className == "active") {
+        h1.className = "";
+    } else {
+        h1.className = "active";
+    }
 }
 
-function mouseenter() {
-    console.log("mouse is here!");
-}
-
-title.addEventListener("click", handleTitleClick);
-title.addEventListener("mouseenter", mouseenter);
+h1.addEventListener("click", handleTitleClick);

@@ -17,3 +17,28 @@ querySelector, querySelectorAll 함수를 사용하면 CSS Selector를 이용해
 
 querySelector는 매칭되는 1개의 반환값을 돌려주고, querySelectorAll은 list형대로 매칭되는 다수의 값을 반환해준다
 추가로 CSS Selector처럼 사용하기에 .class h1:first-child 와 같이도 사용이 가능하다.
+
+################################################################
+################################################################
+
+const title = document.querySelector("#title");
+
+function handleTitleClick() {
+    title.style.color = "red";
+}
+
+function mouseenter() {
+    console.log("mouse is here!");
+}
+
+title.addEventListener("click", handleTitleClick);
+title.addEventListener("mouseenter", mouseenter);
+
+위와같이 addEventListener를 등록할 수 있음
+
+그리고 window.addEventListener또한 기본적으로 사용할 수 있는데
+reize와 같이 화면의 크기가 바뀔때 사용하는 addEventListener도 있고, copy가 될때 사용하는 등 다양한 addEventListener들이 존재함
+
+추가적으로 JS에서 html body에 접근하고자 한다면, document.body로 접근할 수 있음.
+
+또, wifi disconnected or connected를 감지하는 event들도 있고, 이는 mdn사이트가서 찾아보면됨 (online, offline)
