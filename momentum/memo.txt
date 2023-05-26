@@ -42,3 +42,15 @@ reize와 같이 화면의 크기가 바뀔때 사용하는 addEventListener도 �
 추가적으로 JS에서 html body에 접근하고자 한다면, document.body로 접근할 수 있음.
 
 또, wifi disconnected or connected를 감지하는 event들도 있고, 이는 mdn사이트가서 찾아보면됨 (online, offline)
+
+################################################################
+################################################################
+
+h1.className은 class이름을 그냥 업데이트 해버리게 된다
+하지만 해당 태그에 여러개의 class들이 할당되어 있다고 가정할때, 해당 메소드를 사용하면 이전에 할당된 다수의 class는 모두 날아가고
+새롭게 할당된 1개의 class만 다시 할당되게 된다.
+
+이러면 안됨..
+
+그래서 classList라는게 존재하는데, 이는 말 그대로 list임!
+그래서 contain or add or remove or replace 등등이 가능하다 like h1.classList.contains("clicked")와 같이
