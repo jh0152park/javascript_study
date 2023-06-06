@@ -1,7 +1,14 @@
-const h1 = document.querySelector("#title");
+const loginForm = document.querySelector("#login-form");
+const loginInput = document.querySelector("#login-form input");
+const sayHello = document.querySelector("#hello");
 
-function handleTitleClick() {
-    h1.classList.toggle("active");
+function onLoginSubmit(event) {
+  event.preventDefault();
+  const username = loginInput.value;
+  loginForm.classList.add("hidden");
+
+  sayHello.innerText = "Hello" + username + "!";
+  sayHello.classList.toggle("hidden");
 }
 
-h1.addEventListener("click", handleTitleClick);
+loginForm.addEventListener("submit", onLoginSubmit);
