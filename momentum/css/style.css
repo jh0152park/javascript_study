@@ -1,0 +1,7 @@
+.hidden {
+  display: none;
+}
+
+.backgroundImage {
+  background-size: cover;
+}
