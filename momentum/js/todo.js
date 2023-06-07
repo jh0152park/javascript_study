@@ -7,8 +7,8 @@ function deleteTodo(event) {
   li = event.target.parentNode;
 
   li.remove();
-  todoItems = todoItems.filter((item) => item.id !== li.id);
-  localStorage.setItem("todo_list", todoItems);
+  todoItems = todoItems.filter((item) => item.id !== parseInt(li.id));
+  localStorage.setItem("todo_list", JSON.stringify(todoItems));
 }
 
 function removeFilter(item, target) {
