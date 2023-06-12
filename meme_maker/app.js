@@ -10,6 +10,8 @@ const mode_button = document.getElementById("mode_button");
 const destroy = document.getElementById("destroy");
 const eraser = document.getElementById("eraser");
 const fileInput = document.getElementById("file");
+const textInput = document.getElementById("text");
+const save = document.getElementById("save");
 
 let isPainting = false;
 let isFilling = false;
@@ -18,6 +20,7 @@ canvas.width = 800;
 canvas.height = 800;
 
 context.lineWidth = line_width.value;
+context.lineCap = "round";
 
 function onMousemove(event) {
   if (isPainting) {
@@ -99,11 +102,34 @@ function onFileInputChange(event) {
   };
 }
 
+function onCanvasDblClick(event) {
+  const x = event.offsetX;
+  const y = event.offsetY;
+  const text = textInput.value;
+
+  if (text !== null) {
+    context.save();
+    context.lineWidth = 1;
+    context.strokeText(text, x, y);
+    context.restore();
+  }
+}
+
+function onSave() {
+  const url = canvas.toDataURL();
+  const a = document.createElement("a");
+
+  a.href = url;
+  a.download = "myDrawing.png";
+  a.click();
+}
+
 canvas.addEventListener("mousemove", onMousemove);
 canvas.addEventListener("mousedown", onMousedown);
 canvas.addEventListener("mouseup", onMouseup);
 canvas.addEventListener("mouseleave", onMouseleave);
 canvas.addEventListener("click", onCanvasClick);
+canvas.addEventListener("dblclick", onCanvasDblClick);
 
 line_width.addEventListener("change", onLineWidthChange);
 
@@ -114,3 +140,4 @@ mode_button.addEventListener("click", onModeChange);
 destroy.addEventListener("click", onDestroy);
 eraser.addEventListener("click", onEaserClick);
 fileInput.addEventListener("change", onFileInputChange);
+save.addEventListener("click", onSave);
