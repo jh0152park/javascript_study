@@ -1,11 +1,12 @@
 const canvas = document.querySelector("canvas");
 const context = canvas.getContext("2d");
+const line_width = document.getElementById("line_width");
 var isPainting = false;
 
 canvas.width = 800;
 canvas.height = 800;
 
-context.lineWidth = 2;
+context.lineWidth = line_width.value;
 
 const COLORS = [
   "#ff3838",
@@ -34,13 +35,20 @@ function onMousedown() {
 
 function onMouseup() {
   isPainting = false;
+  context.beginPath();
 }
 
 function onMouseleave() {
   isPainting = false;
 }
 
+function onLineWidthChange(event) {
+  context.lineWidth = event.target.value;
+}
+
 canvas.addEventListener("mousemove", onMousemove);
 canvas.addEventListener("mousedown", onMousedown);
 canvas.addEventListener("mouseup", onMouseup);
 canvas.addEventListener("mouseleave", onMouseleave);
+
+line_width.addEventListener("change", onLineWidthChange);
