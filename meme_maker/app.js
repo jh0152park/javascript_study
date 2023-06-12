@@ -28,16 +28,19 @@ function onMousemove(event) {
   context.moveTo(event.offsetX, event.offsetY);
 }
 
-function onMousedown(event) {
+function onMousedown() {
   isPainting = true;
-  //   context.lineTo(event.offsetX, event.offsetY);
 }
 
-function onMouseup(event) {
+function onMouseup() {
   isPainting = false;
-  //   context.stroke();
+}
+
+function onMouseleave() {
+  isPainting = false;
 }
 
 canvas.addEventListener("mousemove", onMousemove);
 canvas.addEventListener("mousedown", onMousedown);
 canvas.addEventListener("mouseup", onMouseup);
+canvas.addEventListener("mouseleave", onMouseleave);
