@@ -13,4 +13,4 @@ function onClick(event) {
   context.stroke();
 }
 
-canvas.addEventListener("click", onClick);
+canvas.addEventListener("mousemove", onClick);
